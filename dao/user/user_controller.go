@@ -2,38 +2,34 @@ package user
 
 import "chat-system/config/global"
 
-func (u User) CreateUser(user User) string {
-	err := global.Config.DB.Table("users").Create(&user).Error
+func (u User) CreateUser() error {
+	err := global.Config.MysqlDB.Table("user").Create(&u).Error
 	if err != nil {
 		global.Config.Logger.Error(err)
-		return err.Error()
 	}
-	return "ok"
+	return err
 }
 
-func (u User) UpdateUser(user User) string {
-	err := global.Config.DB.Table("users").Save(&user).Error
+func (u User) UpdateUser() error {
+	err := global.Config.MysqlDB.Table("user").Save(&u).Error
 	if err != nil {
 		global.Config.Logger.Error(err)
-		return err.Error()
 	}
-	return "ok"
+	return err
 }
 
-func (u User) DeleteUser(user User) string {
-	err := global.Config.DB.Table("users").Delete(&user).Error
+func (u User) DeleteUser() error {
+	err := global.Config.MysqlDB.Table("user").Delete(&u).Error
 	if err != nil {
 		global.Config.Logger.Error(err)
-		return err.Error()
 	}
-	return "ok"
+	return err
 }
 
-func (u User) GetUser(user User) string {
-	err := global.Config.DB.Table("users").First(&user).Error
+func (u User) GetUser() error {
+	err := global.Config.MysqlDB.Table("user").First(&u).Error
 	if err != nil {
 		global.Config.Logger.Error(err)
-		return err.Error()
 	}
-	return "ok"
+	return err
 }

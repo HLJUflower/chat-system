@@ -2,13 +2,15 @@ package global
 
 import (
 	"github.com/sirupsen/logrus"
+	"go.mongodb.org/mongo-driver/mongo"
 	"gorm.io/gorm"
 	"sync"
 )
 
 type Global struct {
-	Logger *logrus.Logger
-	DB     *gorm.DB
+	Logger  *logrus.Logger
+	MysqlDB *gorm.DB
+	MongoDB *mongo.Client
 }
 
 var (
