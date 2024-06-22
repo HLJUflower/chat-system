@@ -11,6 +11,7 @@ type User struct {
 	Status            bool      `json:"status,omitempty" gorm:"status"`                           //状态（1正常 0离线）
 	DelFlag           bool      `json:"del_flag,omitempty" gorm:"del_flag"`                       //删除标志（1代表存在 0代表删除）
 	CreateTime        time.Time `json:"create_time" gorm:"create_time"`                           //创建时间
-	UpdateTime        time.Time `json:"update_time" gorm:"update_time"`                           //登录时间
+	LoginTime         time.Time `json:"login_time" gorm:"login_time"`                             //登录时间
+	LoginIp           string    `json:"login_ip,omitempty" gorm:"login_ip"`                       //登录IP
 	Remark            string    `json:"remark,omitempty" gorm:"remark"`                           //备注
 }
